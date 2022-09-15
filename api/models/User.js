@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const hotelSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -22,4 +22,4 @@ const hotelSchema = mongoose.Schema({
     { timestamps: true }
 );
 
-export default mongoose.model("usercontents", hotelSchema);
+export default mongoose.model("usercontents", userSchema);

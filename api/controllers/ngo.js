@@ -36,7 +36,7 @@ export const getNgo = async (req, res, next) => {
         const ngo = await Ngo.findById(req.params.id);
         res.status(200).json(ngo);
     } catch (err) {
-        res.status(500).json(err);
+        next(err);
     }
 }
 

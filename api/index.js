@@ -2,8 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
-import authRoute from "./routes/auth.js";
-import ngosRoute from "./routes/ngo.js";
+import donarRoute from "./routes/donar.js"
+// import authRoute from "./routes/auth.js";
+// import ngosRoute from "./routes/ngo.js";
 
 
 //App config
@@ -16,7 +17,7 @@ const connect = async () => {
     try {
 
         await mongoose.connect(process.env.MONGO);
-        console.log("COnnected to Mongodb");
+        console.log("Connected to Mongodb");
     } catch (error) {
         throw error;
     }
@@ -29,9 +30,9 @@ mongoose.connection.on("disconnected", () => {
 // middleware
 app.use(express.json());
 app.use(cors());
-
-app.use("/api/auth", authRoute);
-app.use("/api/ngo", ngosRoute);
+app.use("/api/donar", donarRoute);
+// app.use("/api/auth", authRoute);
+// app.use("/api/ngo", ngosRoute);
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500
